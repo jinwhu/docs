@@ -171,13 +171,14 @@ The TiDB configuration file supports more options than command-line parameters. 
 - Default value: `64`
 - Currently, the valid value range is `[64, 512]`.
 
-### `enable-telemetry` <span class="version-mark">New in v4.0.2 and deprecated in v8.1.0</span>
+### `enable-telemetry` <span class="version-mark">New in v4.0.2</span>
 
 > **Warning:**
 >
-> Starting from v8.1.0, the telemetry feature in TiDB is removed, and this configuration item is no longer functional. It is retained solely for compatibility with earlier versions.
+> - For versions from v8.1.0 to v8.5.1, TiDB removes the telemetry feature and this configuration item no longer takes effect. It is retained solely for compatibility with earlier versions.
+> - Starting from v8.5.3, TiDB reintroduces the telemetry feature. However, it only logs telemetry-related information locally and no longer sends data to PingCAP over the network.
 
-- Before v8.1.0, this configuration item controls whether to enable telemetry collection in a TiDB instance.
+- Controls whether to enable telemetry collection in a TiDB instance.
 - Default value: `false`
 
 ### `deprecate-integer-display-length`
@@ -698,6 +699,14 @@ Configuration items related to opentracing.reporter.
 + The address at which the reporter sends spans to the jaeger-agent.
 + Default value: `""`
 
+## pd-client
+
+### `pd-server-timeout`
+
++ The timeout for TiDB to send requests to PD nodes via the PD client.
++ Default value: 3
++ Unit: second
+
 ## tikv-client
 
 ### `grpc-connection-count`
@@ -764,7 +773,7 @@ Configuration items related to opentracing.reporter.
 
 ### `overload-threshold`
 
-- The threshold of the TiKV load. If the TiKV load exceeds this threshold, more `batch` packets are collected to relieve the pressure of TiKV. It is valid only when the value of `tikv-client.max-batch-size` is greater than `0`. It is recommended not to modify this value.
+- The threshold of the TiKV load. If the TiKV load exceeds this threshold, more `batch` packets are collected to relieve the pressure of TiKV. This configuration item takes effect only when both [`tikv-client.max-batch-size`](#max-batch-size) and [`tikv-client.max-batch-wait-time`](#max-batch-wait-time) are set to values greater than `0`. It is recommended not to modify this value.
 - Default value: `200`
 
 ### `copr-req-timeout` <span class="version-mark">New in v7.5.0</span>
