@@ -1,7 +1,6 @@
 <!-- markdownlint-disable MD007 -->
 <!-- markdownlint-disable MD041 -->
 
-- [Docs Home](https://docs.pingcap.com/)
 - About TiDB Self-Managed
   - [What is TiDB Self-Managed](/overview.md)
   - [TiDB 8.5 Release Notes](/releases/release-8.5.0.md)
@@ -9,7 +8,6 @@
   - [MySQL Compatibility](/mysql-compatibility.md)
   - [TiDB Limitations](/tidb-limitations.md)
   - [Credits](/credits.md)
-  - [Roadmap](/tidb-roadmap.md)
 - Get Started
   - [Quick Start with TiDB](/quick-start-with-tidb.md)
   - [Quick Start with HTAP](/quick-start-with-htap.md)
@@ -19,7 +17,7 @@
 - Develop
   - [Overview](/develop/dev-guide-overview.md)
   - Quick Start
-    - [Build a TiDB Cloud Serverless Cluster](/develop/dev-guide-build-cluster-in-cloud.md)
+    - [Build a {{{ .starter }}} Cluster](/develop/dev-guide-build-cluster-in-cloud.md)
     - [CRUD SQL in TiDB](/develop/dev-guide-tidb-crud-sql.md)
   - Example Applications
     - Java
@@ -48,6 +46,8 @@
     - Ruby
       - [mysql2](/develop/dev-guide-sample-application-ruby-mysql2.md)
       - [Rails](/develop/dev-guide-sample-application-ruby-rails.md)
+    - C#
+      - [C#](/develop/dev-guide-sample-application-cs.md)
   - Connect to TiDB
     - GUI Database Tools
       - [JetBrains DataGrip](/develop/dev-guide-gui-datagrip.md)
@@ -193,6 +193,7 @@
     - [Integrate with Apache Kafka and Apache Flink](/replicate-data-to-kafka.md)
   - Reference
     - [TiCDC Architecture](/ticdc/ticdc-architecture.md)
+    - [TiCDC Data Replication Capabilities](/ticdc/ticdc-data-replication-capabilities.md)
     - [TiCDC Server Configurations](/ticdc/ticdc-server-config.md)
     - [TiCDC Changefeed Configurations](/ticdc/ticdc-changefeed-config.md)
     - [TiCDC Client Authentication](/ticdc/ticdc-client-authentication.md)
@@ -420,23 +421,9 @@
       - [Perform Stale Read Using `tidb_read_staleness`](/tidb-read-staleness.md)
       - [Perform Stale Read Using `tidb_external_ts`](/tidb-external-ts.md)
     - [Use the `tidb_snapshot` System Variable](/read-historical-data.md)
-  - Best Practices
-    - [Use TiDB](/best-practices/tidb-best-practices.md)
-    - [Java Application Development](/best-practices/java-app-best-practices.md)
-    - [Use HAProxy](/best-practices/haproxy-best-practices.md)
-    - [Highly Concurrent Write](/best-practices/high-concurrency-best-practices.md)
-    - [Grafana Monitoring](/best-practices/grafana-monitor-best-practices.md)
-    - [PD Scheduling](/best-practices/pd-scheduling-best-practices.md)
-    - [TiKV Performance Tuning with Massive Regions](/best-practices/massive-regions-best-practices.md)
-    - [Three-node Hybrid Deployment](/best-practices/three-nodes-hybrid-deployment.md)
-    - [Local Read Under Three Data Centers Deployment](/best-practices/three-dc-local-read.md)
-    - [Use UUIDs](/best-practices/uuid.md)
-    - [Read-Only Storage Nodes](/best-practices/readonly-nodes.md)
-    - [SaaS Multi-Tenant Scenarios](/best-practices/saas-best-practices.md)
   - [Use Placement Rules](/configure-placement-rules.md)
   - [Use Load Base Split](/configure-load-base-split.md)
   - [Use Store Limit](/configure-store-limit.md)
-  - [DDL Execution Principles and Best Practices](/ddl-introduction.md)
   - [Batch Processing](/batch-processing.md)
   - Use PD Microservices
     - [PD Microservices Overview](/pd-microservices.md)
@@ -445,6 +432,21 @@
     - [TSO Configuration Flags](/command-line-flags-for-tso-configuration.md)
     - [Scheduling Configuration File](/scheduling-configuration-file.md)
     - [Scheduling Configuration Flags](/command-line-flags-for-scheduling-configuration.md)
+- Best Practices
+  - [Use TiDB](/best-practices/tidb-best-practices.md)
+  - [Manage DDL](/ddl-introduction.md)
+  - [Optimize Multi-Column Indexes](/best-practices/multi-column-index-best-practices.md)
+  - [Handle Millions of Tables in SaaS Multi-Tenant Scenarios](/best-practices/saas-best-practices.md)
+  - [Use UUIDs as Primary Keys](/best-practices/uuid.md)
+  - [Develop Java Applications](/best-practices/java-app-best-practices.md)
+  - [Handle High-Concurrency Writes](/best-practices/high-concurrency-best-practices.md)
+  - [Tune TiKV Performance with Massive Regions](/best-practices/massive-regions-best-practices.md)
+  - [Tune PD Scheduling](/best-practices/pd-scheduling-best-practices.md)
+  - [Use Read-Only Storage Nodes](/best-practices/readonly-nodes.md)
+  - [Use HAProxy for Load Balancing](/best-practices/haproxy-best-practices.md)
+  - [Monitor TiDB Using Grafana](/best-practices/grafana-monitor-best-practices.md)
+  - [Three-Node Hybrid Deployment](/best-practices/three-nodes-hybrid-deployment.md)
+  - [Local Reads in Three-Data-Center Deployments](/best-practices/three-dc-local-read.md)
 - TiDB Tools
   - [Overview](/ecosystem-tool-user-guide.md)
   - [Use Cases](/ecosystem-tool-user-case.md)
@@ -965,12 +967,13 @@
       - [Aggregate (GROUP BY) Functions](/functions-and-operators/aggregate-group-by-functions.md)
       - [GROUP BY Modifiers](/functions-and-operators/group-by-modifier.md)
       - [Window Functions](/functions-and-operators/window-functions.md)
-      - [Miscellaneous Functions](/functions-and-operators/miscellaneous-functions.md)
-      - [Precision Math](/functions-and-operators/precision-math.md)
-      - [Set Operations](/functions-and-operators/set-operators.md)
       - [Sequence Functions](/functions-and-operators/sequence-functions.md)
-      - [List of Expressions for Pushdown](/functions-and-operators/expressions-pushed-down.md)
+      - [Utility Functions](/functions-and-operators/utility-functions.md)
+      - [Miscellaneous Functions](/functions-and-operators/miscellaneous-functions.md)
       - [TiDB Specific Functions](/functions-and-operators/tidb-functions.md)
+      - [Precision Math](/functions-and-operators/precision-math.md)
+      - [Set Operations](/functions-and-operators/set-operators.md)      
+      - [List of Expressions for Pushdown](/functions-and-operators/expressions-pushed-down.md)      
       - [Comparisons between Functions and Syntax of Oracle and TiDB](/oracle-functions-to-tidb.md)
     - [Clustered Indexes](/clustered-indexes.md)
     - [Vector Index](/vector-search/vector-search-index.md)
@@ -1095,6 +1098,8 @@
   - [Release Support Policy](https://www.pingcap.com/tidb-release-support-policy/)
   - [TiDB Installation Packages](/binary-package.md)
   - v8.5
+    - [8.5.3](/releases/release-8.5.3.md)
+    - [8.5.2](/releases/release-8.5.2.md)
     - [8.5.1](/releases/release-8.5.1.md)
     - [8.5.0](/releases/release-8.5.0.md)
   - v8.4

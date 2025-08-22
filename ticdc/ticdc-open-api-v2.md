@@ -92,7 +92,7 @@ curl -X GET http://127.0.0.1:8300/api/v2/status
 
 ```json
 {
-  "version": "v8.5.0",
+  "version": "{{{ .tidb-version }}}",
   "git_hash": "10413bded1bdb2850aa6d7b94eb375102e9c44dc",
   "id": "d2912e63-3349-447c-90ba-72a4e04b5e9e",
   "pid": 1447,
@@ -155,7 +155,6 @@ This interface is used to submit a replication task to TiCDC. If the request is 
       "max_log_size": 0,
       "storage": "string"
     },
-    "enable_old_value": true,
     "enable_sync_point": true,
     "filter": {
       "event_filters": [
@@ -402,7 +401,6 @@ If the request is successful, `200 OK` is returned. If the request fails, an err
       "max_log_size": 0,
       "storage": "string"
     },
-    "enable_old_value": true,
     "enable_sync_point": true,
     "filter": {
       "event_filters": [
@@ -588,7 +586,6 @@ To modify the changefeed configuration, follow the steps of `pause the replicati
       "max_log_size": 0,
       "storage": "string"
     },
-    "enable_old_value": true,
     "enable_sync_point": true,
     "filter": {
       "event_filters": [
